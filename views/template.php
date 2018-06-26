@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Inventory System</title>
+  <title>Prueba Pos</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -46,17 +46,37 @@
 <!-- Site wrapper -->
 <div class="wrapper">
 
-<?php include "modules/header.php" ?>
+<?php include "modules/header.php"; ?>
 
   <!-- =============================================== -->
-
   <!-- Left side column. contains the sidebar -->
-  <?php include "modules/sidebar.php" ?>
+  <?php include "modules/sidebar.php"; ?>
 
   <!-- =============================================== -->
 
   <!-- Content Wrapper. Contains page content -->
-  <?php include "modules/wrapper.php" ?>
+  <?php include "modules/sidebar.php"; ?>
+  <?php 
+  if (isset($_GET['ruta'])){
+    if ($_GET['ruta'] == 'home' ||
+    $_GET['ruta'] == 'users' ||
+    $_GET['ruta'] == 'categories' ||
+    $_GET['ruta'] == 'products' ||
+    $_GET['ruta'] == 'customers' ||
+    $_GET['ruta'] == 'sales' ||
+    $_GET['ruta'] == 'sales-create' ||
+    $_GET['ruta'] == 'sales-report'){
+
+      include 'modules/'.$_GET['ruta'].'.php';
+    } else {
+
+      include 'modules/404.php';
+    }
+  } else{
+    include 'modules/home.php';
+  }
+?>
+
   <!-- /.content-wrapper -->
 
   <?php include "modules/footer.php" ?>
