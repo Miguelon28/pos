@@ -1,1 +1,3 @@
-$('.sidebar-menu').tree()
+$('.sidebar-menu').tree();
+
+$('.dtable').DataTable();
